@@ -586,11 +586,24 @@ h1, h2, h3, h4, h5, h6 {
   filter: brightness(0) saturate(100%);
 }
 
+/* Footer columns: horizontal row, even spacing, equal width */
 .footer-columns {
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
   margin-bottom: 50px;
-  gap: 60px;
+}
+
+.footer-col {
+  flex: 1 1 0;
+  min-width: 0;
+  text-align: center;
+  padding: 0 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .footer-col h4 {
@@ -760,10 +773,11 @@ h1, h2, h3, h4, h5, h6 {
     gap: 20px;
     align-items: center;
   }
-
   .footer-col {
-    text-align: center;
     width: 100%;
+    text-align: center;
+    align-items: center;
+    padding: 0;
   }
 
   .footer-logo {
