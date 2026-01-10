@@ -478,5 +478,133 @@
   font-weight: 500;
 }
 
-/* RESPONSIVE DESIGN (removed) - keeping desktop styles for all screen sizes */
-/* Mobile-specific overrides removed to make desktop and mobile views the same */
+/* Page-level mobile responsiveness: scale and stack sections under 768px */
+@media (max-width: 768px) {
+  .page-hero {
+    padding: 40px 20px;
+    height: 40vh;
+    min-height: 220px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .page-hero h1 {
+    font-size: 32px;
+  }
+
+  .page-hero p {
+    font-size: 16px;
+    max-width: 100%;
+  }
+
+  .about-content,
+  .services-section,
+  .contact-section {
+    padding: 40px 20px;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .process-steps {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-container {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .content-block h2 {
+    font-size: 28px;
+  }
+
+  .contact-form {
+    padding: 24px;
+  }
+
+  .cta-section {
+    padding: 40px 20px;
+  }
+
+  .cta-section h2 {
+    font-size: 28px;
+  }
+
+  .navbar {
+    padding: 12px 20px;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+  }
+
+  .navbar nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .navbar nav .nav-link {
+    padding: 6px 12px;
+    font-size: 13px;
+  }
+
+  html, body { overflow-x: hidden; }
+}
+
+/* Extra-small page tweaks (<=480px) */
+@media (max-width: 480px) {
+  .page-hero {
+    padding: 30px 12px;
+    height: 35vh;
+    min-height: 180px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .page-hero h1 {
+    font-size: 26px;
+    line-height: 1.12;
+  }
+
+  .page-hero p {
+    font-size: 14px;
+  }
+
+  .about-content,
+  .services-section,
+  .contact-section {
+    padding: 24px 12px;
+  }
+
+  .services-grid {
+    gap: 18px;
+  }
+
+  .feature-card, .service-item {
+    padding: 18px 12px;
+  }
+
+  .contact-form {
+    padding: 18px;
+  }
+
+  .cta-section {
+    padding: 30px 12px;
+  }
+
+  .content-block h2 {
+    font-size: 26px;
+  }
+
+  html, body { overflow-x: hidden; }
+}

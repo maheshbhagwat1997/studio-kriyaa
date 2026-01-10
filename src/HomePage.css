@@ -624,5 +624,268 @@ h1, h2, h3, h4, h5, h6 {
   padding-top: 30px;
 }
 
-/* RESPONSIVE DESIGN (removed) - keeping desktop styles for all screen sizes */
-/* Mobile-specific overrides removed to make desktop and mobile views the same */
+/* Mobile responsiveness: scale desktop layout for small screens and stack components vertically */
+@media (max-width: 768px) {
+  /* NAVBAR: stack and center */
+  .navbar {
+    padding: 12px 20px;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .navbar .logo {
+    font-size: 24px;
+  }
+
+  .navbar nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+  }
+
+  .navbar nav a {
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+
+  /* HERO: center content and scale down */
+  .hero-header {
+    padding: 30px 20px;
+    min-height: 60vh;
+    height: auto;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .hero-header h1 {
+    font-size: 34px;
+    max-width: 100%;
+    margin-bottom: 12px;
+  }
+
+  .hero-header p {
+    font-size: 16px;
+    max-width: 100%;
+    margin-top: 12px;
+  }
+
+  .hero-btn {
+    padding: 12px 24px;
+    font-size: 15px;
+  }
+
+  /* PROCESS: stack cards and scale */
+  .process-section {
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: stretch;
+  }
+
+  .process-card {
+    width: 100%;
+    padding: 24px;
+  }
+
+  .process-card h3 {
+    font-size: 20px;
+  }
+
+  .process-card p {
+    font-size: 15px;
+  }
+
+  /* CONTENT: stack image and text */
+  .content-section {
+    padding: 40px 20px;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    text-align: center;
+  }
+
+  .content-section.reverse {
+    flex-direction: column;
+  }
+
+  .content-image {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+  }
+
+  .content-text {
+    width: 100%;
+  }
+
+  .content-text h2 {
+    font-size: 26px;
+  }
+
+  .content-text p {
+    font-size: 15px;
+  }
+
+  /* PROMO: scale and center */
+  .promo-section {
+    padding: 30px 20px;
+    min-height: 220px;
+    height: auto;
+  }
+
+  .promo-section h2 {
+    font-size: 22px;
+    margin-bottom: 20px;
+  }
+
+  /* FOOTER: stack and center columns */
+  .footer {
+    padding: 30px 20px;
+    text-align: center;
+  }
+
+  .footer-columns {
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .footer-col {
+    text-align: center;
+    width: 100%;
+  }
+
+  .footer-logo {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+
+  .footer-col h4 {
+    font-size: 16px;
+  }
+
+  .footer-col p {
+    font-size: 14px;
+  }
+
+  /* Utility: avoid horizontal scrollbar if something grows */
+  html, body { overflow-x: hidden; }
+}
+
+/* Extra-small screens: refine spacing and scale for phones (<=480px) */
+@media (max-width: 480px) {
+  /* NAVBAR */
+  .navbar {
+    padding: 10px 12px;
+    gap: 8px;
+    align-items: center;
+  }
+
+  .navbar .logo {
+    font-size: 20px;
+  }
+
+  .navbar nav a {
+    padding: 6px 10px;
+    font-size: 12px;
+  }
+
+  /* HERO */
+  .hero-header {
+    padding: 26px 12px;
+    min-height: 55vh;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .hero-header h1 {
+    font-size: 28px;
+    line-height: 1.15;
+    margin-bottom: 10px;
+  }
+
+  .hero-header p {
+    font-size: 14px;
+  }
+
+  .hero-btn {
+    padding: 10px 20px;
+    font-size: 14px;
+    display: inline-block;
+    margin: 12px auto 0;
+  }
+
+  /* PROCESS */
+  .process-section {
+    padding: 24px 12px;
+    gap: 18px;
+    align-items: center;
+  }
+
+  .process-card {
+    padding: 18px;
+    width: 100%;
+    margin-bottom: 12px;
+  }
+
+  .process-card h3 {
+    font-size: 18px;
+  }
+
+  /* CONTENT */
+  .content-section {
+    padding: 24px 12px;
+    gap: 16px;
+  }
+
+  .content-image {
+    width: 100%;
+    max-width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .content-text h2 {
+    font-size: 22px;
+  }
+
+  .content-text p {
+    font-size: 14px;
+  }
+
+  /* PROMO */
+  .promo-section {
+    padding: 24px 12px;
+    min-height: 200px;
+  }
+
+  .promo-section h2 {
+    font-size: 20px;
+  }
+
+  /* FOOTER */
+  .footer {
+    padding: 24px 12px;
+  }
+
+  .footer-columns {
+    gap: 16px;
+  }
+
+  .footer-col p, .copyright {
+    font-size: 13px;
+  }
+
+  html, body { overflow-x: hidden; }
+}
+
