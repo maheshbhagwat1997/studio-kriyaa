@@ -5,6 +5,7 @@ import explore from "./assets/explore.jpg";
 import content1 from "./assets/content1.jpg";
 import content2 from "./assets/content2.jpg";
 import content3 from "./assets/content3.jpg";
+import kids2 from "./assets/kids2.jpg";
 import promo from "./assets/promo.jpg";
 import logo from "./assets/Union.png";
 
@@ -124,6 +125,25 @@ export default function HomePage() {
             child’s world.
           </p>
           <a href="https://docs.google.com/forms/d/e/1FAIpQLSfysuWTNmRABGUmHBBm7ut53rIxH7oLA5FoKl5xrRCNzjncgw/viewform" target="_blank" rel="noopener noreferrer" className="outline-btn">Discover More</a>
+        </div>
+      </section>
+
+      {/* KIDS BEDROOM 2 SECTION */}
+      <section className="content-section animate-on-scroll">
+        <img
+          src={kids2}
+          alt="Kids Bedroom 2"
+          className="content-image"
+          style={{ objectFit: "cover" }}
+        />
+        <div className="content-text">
+          <h2>Where Comfort Meets Creativity.</h2>
+          <p>
+            A thoughtfully designed space where imagination blossoms — blending colors, comfort, and functionality to create the perfect environment for growing minds.
+          </p>
+          <a href="#kids-bedroom" className="outline-btn">
+            Discover More
+          </a>
         </div>
       </section>
 
