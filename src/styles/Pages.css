@@ -481,29 +481,28 @@
 /* Page-level mobile responsiveness: scale and stack sections under 768px */
 @media (max-width: 768px) {
   .page-hero {
-    padding: 40px 20px;
-    height: 40vh;
-    min-height: 220px;
+    padding: 36px 16px;
+    height: 38vh;
+    min-height: 200px;
     text-align: center;
     align-items: center;
     justify-content: center;
   }
 
   .page-hero h1 {
-    font-size: 32px;
+    font-size: 30px;
   }
 
   .page-hero p {
-    font-size: 16px;
+    font-size: 15px;
     max-width: 100%;
   }
 
   .about-content,
   .services-section,
   .contact-section {
-    padding: 40px 20px;
+    padding: 36px 16px;
   }
-
   .services-grid {
     grid-template-columns: 1fr;
     gap: 20px;
