@@ -157,8 +157,10 @@ export default function HomePage() {
       </section>
 
       <footer className="footer">
-  <div className="footer-logo">
-    <Link to="/"><img src={logo} alt="Studio Kriyaa logo" className="footer-logo-img" /> Studio Kriyaa</Link>
+  <div className="footer-logo footer-logo-top">
+    <Link to="/">
+      <img src={logo} alt="Studio Kriyaa logo" className="footer-logo-img" /> <span style={{ color: '#111' }}>Studio Kriyaa</span>
+    </Link>
   </div>
 
   <div className="footer-columns">
@@ -173,21 +175,23 @@ export default function HomePage() {
 
     <div className="footer-col">
       <h4>Explore</h4>
-      <p>Furniture</p>
-      <p>Decor</p>
-      <p>Lighting</p>
-      <p>Textiles</p>
+      <a href="#furniture" className="footer-link">Furniture</a>
+      <a href="#decor" className="footer-link">Decor</a>
+      <a href="#lighting" className="footer-link">Lighting</a>
+      <a href="#textiles" className="footer-link">Textiles</a>
     </div>
 
     <div className="footer-col">
       <h4>Connect</h4>
-      <p>Instagram</p>
-      <p>Facebook</p>
-      <p>LinkedIn</p>
-      <p>Behance</p>
+      <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="footer-link">Instagram</a>
+      <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="footer-link">Facebook</a>
+      <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="footer-link">LinkedIn</a>
+      <a href="https://behance.net" target="_blank" rel="noopener noreferrer" className="footer-link">Behance</a>
     </div>
 
   </div>
+
+
 
   <p className="copyright">© 2025 Studio Kriyaa. All rights reserved.</p>
 </footer>
