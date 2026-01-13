@@ -46,10 +46,15 @@ export default function AboutPage() {
         <div className="content-block">
           <h2>Our Story</h2>
           <p>
-            Studio Kriyaa was founded with a passion to transform living spaces into sanctuaries of elegance and comfort. We believe that interior design is more than just aesthetics—it's about creating experiences that resonate with the people who inhabit these spaces.
+            The name "Kriyaa" comes from the Sanskrit word क्रिया, symbolizing action, creation, and the disciplined practice of making. For us, it reflects our core belief that great design emerges from a continuous cycle of curiosity, exploration, and execution.
           </p>
           <p>
-            With years of expertise in residential and commercial design, our team combines creativity with precision to deliver exceptional results that exceed expectations.
+            Studio Kriyaa was born from a passion to redefine how spaces can influence human experience. With a multidisciplinary approach spanning architecture, interiors, landscape, and custom furniture, we strive to unite design thinking with craftsmanship.
+            Every project begins with listening—understanding how people live, work, and feel—followed by a tailored design journey that transforms ideas into built reality.
+          </p>
+          <p>
+            At Studio Kriyaa, our story is written in every detail we create, every space we shape, and every client relationship we nurture.
+            This is our "kriyaa"—our craft, our purpose, and our promise.
           </p>
         </div>
 

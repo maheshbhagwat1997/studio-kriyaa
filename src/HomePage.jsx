@@ -21,8 +21,15 @@ export default function HomePage() {
           <Link to="/" className="logo-link" aria-label="Studio Kriyaa Home">
             <span className="logo-ring" aria-hidden="true">
               <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
-                <g fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <line x1="32" y1="4" x2="32" y2="14" className="ring-line" />
+                <g fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  <line x1="32" y1="2" x2="32" y2="10" className="ring-line" />
+                  <line x1="32" y1="54" x2="32" y2="62" className="ring-line" />
+                  <line x1="2" y1="32" x2="10" y2="32" className="ring-line" />
+                  <line x1="54" y1="32" x2="62" y2="32" className="ring-line" />
+                  <line x1="11" y1="11" x2="17" y2="17" className="ring-line" />
+                  <line x1="47" y1="47" x2="53" y2="53" className="ring-line" />
+                  <line x1="53" y1="11" x2="47" y2="17" className="ring-line" />
+                  <line x1="17" y1="47" x2="11" y2="53" className="ring-line" />
                 </g>
               </svg>
             </span>
@@ -109,7 +116,7 @@ export default function HomePage() {
             Step into a world where every moment is enhanced by the thoughtful
             design of your surroundings—crafted to inspire and delight.
           </p>
-          <a href="https://docs.google.com/forms/d/e/1FAIpQLSfysuWTNmRABGUmHBBm7ut53rIxH7oLA5FoKl5xrRCNzjncgw/viewform" target="_blank" rel="noopener noreferrer" className="outline-btn">Discover More</a>
+          <Link to="/project-story" className="outline-btn">Discover More</Link>
         </div>
 
         <img src={content2} alt="Room Design" className="content-image" />
@@ -126,7 +133,7 @@ export default function HomePage() {
             crafted to nurture growth and comfort in every corner of your
             child’s world.
           </p>
-          <a href="https://docs.google.com/forms/d/e/1FAIpQLSfysuWTNmRABGUmHBBm7ut53rIxH7oLA5FoKl5xrRCNzjncgw/viewform" target="_blank" rel="noopener noreferrer" className="outline-btn">Discover More</a>
+          <Link to="/project-story" className="outline-btn">Discover More</Link>
         </div>
       </section>
 
@@ -143,9 +150,9 @@ export default function HomePage() {
           <p>
             A thoughtfully designed space where imagination blossoms — blending colors, comfort, and functionality to create the perfect environment for growing minds.
           </p>
-          <a href="#kids-bedroom" className="outline-btn">
+          <Link to="/project-story" className="outline-btn">
             Discover More
-          </a>
+          </Link>
         </div>
       </section>
 

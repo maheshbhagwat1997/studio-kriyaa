@@ -94,15 +94,16 @@ h1, h2, h3, h4, h5, h6 {
 
 .logo-ring {
   position: absolute;
-  left: 18px; /* shift left to sit near the logo icon */
+  left: 16px; /* positioned on the logo icon */
   top: 50%;
-  width: 42px; /* compact for an orbital path */
-  height: 42px;
+  width: 64px; /* larger size */
+  height: 64px;
   transform: translate(-50%, -50%);
   pointer-events: none;
   z-index: 0;
   color: var(--primary-color);
-  opacity: 0.95;
+  opacity: 0.9;
+  filter: drop-shadow(0 0 8px rgba(201, 144, 90, 0.6)) drop-shadow(0 0 16px rgba(201, 144, 90, 0.3));
 }
 
 .logo-link .logo-icon,
@@ -111,21 +112,22 @@ h1, h2, h3, h4, h5, h6 {
   z-index: 2;
 }
 
-/* The SVG rotates, causing the line to orbit around the logo */
+/* The SVG rotates smoothly like a sun */
 .logo-ring svg { 
   width: 100%;
   height: 100%;
   display: block;
   transform-origin: 50% 50%;
-  animation: orbit 6s linear infinite;
+  animation: rotate-sun 8s linear infinite;
 }
 
 .logo-ring .ring-line {
-  stroke-dasharray: 8 4;
+  stroke-dasharray: 6 2;
   stroke-dashoffset: 0;
 }
 
-@keyframes orbit {
+@keyframes rotate-sun {
+  from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
 
