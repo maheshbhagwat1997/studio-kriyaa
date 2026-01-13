@@ -40,12 +40,12 @@ export default function ContactPage() {
     setIsLoading(true);
 
     try {
-      // Send email using EmailJS
+      // Send email using EmailJS to studio email
       const result = await emailjs.send(
         "service_qlm98yj",  // Service ID
         "template_kf6vxnk", // Template ID
         {
-          to_email: "contact.studiokriyaa@gmail.com",
+          to_email: "contact.studiokriyaa@gmail.com",  // Studio email (set in EmailJS template "To Email" field)
           from_name: formData.name,
           from_email: formData.email,
           phone: formData.phone || "Not provided",
@@ -55,12 +55,13 @@ export default function ContactPage() {
         }
       );
 
-      setSubmitMessage("Thank you! Your message has been sent successfully.");
+      console.log("Email sent successfully:", result);
+      setSubmitMessage("Thank you! Your message has been sent successfully. We'll get back to you soon!");
       setFormData({ name: "", email: "", phone: "", projectType: "", message: "" });
       setTimeout(() => setSubmitMessage(""), 5000);
     } catch (error) {
       console.error("EmailJS error:", error);
-      setSubmitMessage("Failed to send message. Please try again later.");
+      setSubmitMessage("Failed to send message. Please try again later or email us directly.");
       setTimeout(() => setSubmitMessage(""), 5000);
     } finally {
       setIsLoading(false);
