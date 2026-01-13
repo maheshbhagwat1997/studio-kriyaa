@@ -13,8 +13,8 @@ export default function AboutPage() {
           <Link to="/" className="logo-link" aria-label="Studio Kriyaa Home">
             <span className="logo-ring" aria-hidden="true">
               <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
-                <g fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round">
-                  <circle cx="12" cy="32" r="7" className="ring-orbit" />
+                <g fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <line x1="32" y1="4" x2="32" y2="14" className="ring-line" />
                 </g>
               </svg>
             </span>
