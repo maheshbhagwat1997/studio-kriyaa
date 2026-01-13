@@ -1,89 +1,167 @@
 # Studio Kriyaa - AI Copilot Instructions
 
 ## Project Overview
-Studio Kriyaa is a React + Vite portfolio site for an interior design studio. It showcases projects through a single-page layout with modular sections, currently rendered primarily through `HomePage.jsx` as a monolithic component.
+Studio Kriyaa is a React + Vite + React Router portfolio site for an interior design studio. It's a **multi-page router-based application** with dedicated page components for Home, About, Services, and Contact. The site showcases design projects and includes a contact form with EmailJS integration.
 
-## Architecture & Component Structure
+## Current Architecture
 
 ### Key Components
-- **App.jsx** - Entry point that renders `HomePage`
-- **HomePage.jsx** - Main page combining inline layout with asset imports (images: hero.jpg, explore.jpg, content1-3.jpg, promo.jpg)
-- **src/sections/** - Reusable section components:
-  - `HeroSection.jsx` - Hero with CTA button (inline styles)
-  - `NavigationSection.jsx` - Navigation bar (inline styles)
-  - `AboutStudioSection.jsx` - About content (inline styles)
-  - `DesignPhilosophySection.jsx` - Philosophy/values
-  - `WorkShowcaseSection.jsx` - Portfolio showcase
-  - `ProcessSection.jsx` - Design process
-  - `FooterSection.jsx` - Footer with copyright year via `new Date().getFullYear()`
-- **src/components/** - Currently empty; reserved for future reusable UI components
+- **App.jsx** - Router entry point with ScrollToTop behavior management
+- **HomePage.jsx** - Home page with hero, process cards, content sections, and portfolio showcase
+- **src/pages/** - Individual page components:
+  - `AboutPage.jsx` - About/philosophy with feature cards
+  - `ServicesPage.jsx` - 6-item services grid + design process steps
+  - `ContactPage.jsx` - Contact form (EmailJS) + info blocks + social links
+- **src/components/** - Reusable UI components:
+  - `Footer.jsx` - Footer component (styling reference only - footer is inline in each page)
+- **src/utils/** - Animation utilities:
+  - `entrance.js` - Scroll-triggered entrance animations (`.animate-on-scroll` class)
+  - `animate.js` - Easing functions, smooth scroll polyfill, requestAnimationFrame wrapper
 
 ### Data Flow
-Single-page layout: no routing, state management, or API calls currently. All content is static/hardcoded.
+- **No state management**: All components are presentational
+- **Contact form state**: Managed locally in `ContactPage.jsx` with `useState`
+- **EmailJS integration**: Direct API calls (Service ID: `service_qlm98yj`, Template ID: `template_kf6vxnk`)
+- **Routing**: React Router v7.12.0 handles navigation; `ScrollToTop.jsx` scrolls to top on route change and reinitializes entrance animations
+- **Footer**: Unified footer structure across all pages with consistent styling, links, and layout
 
-## Styling Conventions
+## Styling Strategy
 
-### CSS Strategy
-- **Global styles**: `index.css` (Poppins font family, color scheme, responsive baseline)
-- **Page-specific**: `HomePage.css` (navbar, hero, sections - Poppins font, earthy palette: #e6cdaa, #2e5c7b, #333)
-- **Component-specific**: Inline `style={}` objects in React components (primarily used in `src/sections/`)
-- **App.css**: Minimal, largely boilerplate from Vite template (can be cleaned up)
+### CSS Files Hierarchy
+1. **index.css** - Global variables (colors, typography), scrollbar, `.animate-on-scroll` utility class
+2. **HomePage.css** - Page-level styles (navbar, hero, footer, content sections, process cards)
+3. **Pages.css** - Page template styles (`.page-hero`, feature grids, form styling, service grids)
+4. **Footer.css** - Footer component styles (reference for styling)
+5. **Component-level** - Inline styles in form inputs where necessary
 
-### Color Palette
-- Navbar: `#e6cdaa` (warm beige)
-- Logo/accent: `#2e5c7b` (dark teal)
-- Text: `#333` (dark gray)
-- Footer: `#333` (dark)
-- Backgrounds: `#f7f7f7`, `#faf6f0` (light off-white)
-
-### Responsive Design
-Currently not mobile-optimized; consider adding media queries to `HomePage.css` for `max-width: 768px` breakpoints.
-
-## Development Workflow
-
-### Build & Run Commands
-```bash
-npm run dev      # Start Vite dev server (HMR enabled)
-npm run build    # Production build to dist/
-npm run preview  # Preview production build locally
-npm run lint     # ESLint check (eslint .)
+### Color Palette (CSS Variables)
+```css
+--primary-color: #c9905a;        /* Warm bronze - buttons, accents */
+--secondary-color: #6b7f89;      /* Muted navy - headings, links */
+--accent-color: #d4a574;         /* Lighter bronze - hover states */
+--light-bg: #faf8f5;             /* Off-white - section backgrounds */
+--dark-text: #1a1a1a;            /* Near-black - body text */
+--light-text: #666;              /* Gray - secondary text */
+--border-accent: #e8dcc8;        /* Beige - subtle borders */
 ```
 
-### Asset Management
-- Images stored in `src/assets/` and imported as ES modules in `HomePage.jsx`
-- Vite handles image optimization; import paths are relative to component files
+### Font Strategy
+- **Playfair Display** (serif) - Headlines (h1-h6)
+- **Poppins** (sans-serif) - Body text, buttons, form inputs
+
+### Responsive Breakpoints
+- **768px** - Tablet: Stack sections, reduce padding, adjust font sizes
+- **480px** - Mobile: Further scaling, single-column layout
 
 ## Key Patterns & Conventions
 
-1. **Functional Components Only**: All components use modern React (no class components)
-2. **Inline Styles**: Section components use inline `style={{}}` objects; avoid new CSS files for sections
-3. **No State/Hooks Currently**: Components are pure presentational; if state is needed, add to parent or extract to custom hook
-4. **Poppins Font**: Primary font across the site (loaded globally in `index.css`)
-5. **React 19.2.0**: Latest version with Strict Mode in `main.jsx`
+### Entrance Animations
+1. Add `.animate-on-scroll` class to section elements
+2. Utility initializes on page load via `initEntranceAnimations()` in `main.jsx`
+3. Elements fade in + slide up (22px) when 12% from viewport bottom
+4. Respects `prefers-reduced-motion` media query
 
-## Integration Points & Dependencies
+**Example:**
+```jsx
+<section className="content-section animate-on-scroll">
+  {/* Content auto-animates on scroll */}
+</section>
+```
 
-### External Dependencies
-- **React 19.2.0** & **React-DOM 19.2.0** - Core framework
-- **Vite 7.2.4** - Build tool with Fast Refresh via `@vitejs/plugin-react`
-- **ESLint 9.39.1** - Linting (eslint-plugin-react-hooks, eslint-plugin-react-refresh)
+### Footer Pattern (All Pages - STANDARDIZED)
+The footer is **identical across all pages** using the same structure as HomePage:
+- Logo with link to home in `footer-logo-top` container with styled text
+- Three footer columns: Quick Links, Explore, and Connect
+- Quick Links use `<Link>` components for internal navigation
+- Connect column uses external `<a>` tags with target="_blank" for social media
+- Copyright notice: © 2025 Studio Kriyaa. All rights reserved.
 
-### Build Configuration
-- `vite.config.js` - Minimal config with React plugin enabled
-- `eslint.config.js` - ESLint configuration for React projects
-- `index.html` - Entry point with `<div id="root"></div>`
+**Important**: When adding new pages, copy the footer from HomePage.jsx or another page to maintain consistency.
+
+### Form Handling (ContactPage Pattern)
+- Local state for form fields + submission status
+- EmailJS sends to `contact.studiokriyaa@gmail.com`
+- Success/error messages displayed inline with auto-hide (3-5s)
+- Button disabled during submission
+
+### Link Strategy
+- Internal navigation: `<Link to="/">` (React Router)
+- External forms/social: `<a href="https://..." target="_blank">`
+- Booking form: Google Forms (hardcoded in `hero-btn` links across all pages)
+
+## Development Workflow
+
+### Build & Run
+```bash
+npm run dev      # Vite dev server with HMR
+npm run build    # Production build to dist/
+npm run preview  # Local preview of production build
+npm run lint     # ESLint check
+```
+
+### Common Tasks
+
+**Adding a new page:**
+1. Create component in `src/pages/PageName.jsx` (copy structure from AboutPage or ContactPage)
+2. Import and add `<Route>` in App.jsx
+3. Add nav link to navbar (all pages have navbar)
+4. **Copy footer from HomePage** to maintain consistency (use footer-logo-top class)
+5. Include footer copyright year: `© 2025 Studio Kriyaa`
+
+**Adding a new section to HomePage:**
+1. Create `<section className="content-section animate-on-scroll">` wrapper
+2. Use `.content-image` + `.content-text` divs for 2-column layout, or `.reverse` for flipped
+3. Add `.outline-btn` or `.hero-btn` for CTAs
+4. Styles inherit from HomePage.css
+
+**Form submissions:**
+- EmailJS already configured; copy ContactPage pattern
+- Init key: `"VnM6YXmL3J3AjXxmP"`
+- Service/Template IDs hardcoded in component
+
+## Integration Points
+
+### Dependencies
+- **React Router DOM 7.12.0** - Multi-page navigation
+- **EmailJS Browser 4.4.1** - Contact form email delivery
+- **Vite 7.2.4** - Build tool with Fast Refresh
+
+### Asset Management
+- Images in `src/assets/`, imported as ES modules with correct relative paths (`./assets/filename`)
+- Vite handles optimization
+- CSS/JS can reference via relative imports
+
+### Important: ScrollToTop Behavior
+- `ScrollToTop.jsx` reinitializes entrance animations on route change
+- Pass `behavior="smooth"` to use polyfilled smooth scroll (duration: 600ms)
+- Falls back to instant scroll if native browser support unavailable
+
+## Recent Fixes (January 2026)
+
+✅ **Removed orphaned Footer component** - Unreachable `<Footer />` tag in App.jsx has been removed
+✅ **Standardized footer across all pages** - All pages (About, Services, Contact) now use same footer as HomePage with proper styling
+✅ **Fixed kids2.jpg import path** - Corrected relative path from `../assets/kids2.jpg` to `./assets/kids2.jpg`
+
+## File Structure Best Practices
+
+1. **Navbar/Footer**: Inline in each page component (not extracted to separate component - maintains styling consistency)
+2. **Page imports**: Each page imports `../HomePage.css` and `../styles/Pages.css` for consistent base styles
+3. **Footer logo styling**: Uses `footer-logo-top` class with text color override `style={{ color: '#111' }}`
+4. **Assets**: All images stored in `src/assets/` and imported with relative path `./assets/`
 
 ## When Adding Features
 
-- **New sections**: Create as default-export functional component in `src/sections/`, use inline styles matching HomePage.css palette
-- **Reusable UI elements**: Add to `src/components/` with consistent styling approach
-- **Global styles**: Update `index.css` or `HomePage.css` (prefer HomePage.css for page-specific rules)
-- **Assets**: Place in `src/assets/`, import as ES modules in components
-- **Linting**: Run `npm run lint` before committing; fix warnings related to React refresh and hooks
+- **New pages**: Follow AboutPage/ServicesPage/ContactPage structure (navbar + page-hero + sections + footer)
+- **New sections**: Use `.animate-on-scroll`, inherit colors from CSS variables
+- **Forms**: Replicate ContactPage pattern with EmailJS
+- **Mobile**: Test responsive behavior at 768px and 480px breakpoints
+- **Footer**: Always include the standardized footer matching HomePage structure
+- **Linting**: Run `npm run lint` before committing
 
-## Known Limitations & Future Improvements
+## Known Conventions
 
-- HomePage.jsx is monolithic; consider breaking into smaller section imports for better maintainability
-- App.css contains boilerplate; can be removed or consolidated
-- No mobile responsiveness; add media queries for tablet/mobile views
-- No state management or routing; scale with React Context or Router if needed
+1. **Footer is inline** - Each page has its own footer markup (matching HomePage pattern) for styling flexibility
+2. **Two-column layouts** - Use `.content-section` + `.content-image` + `.content-text` pattern
+3. **CTA buttons** - Use `.hero-btn` (primary) or `.outline-btn` (secondary)
+4. **Form inputs** - Use inline styles for form fields styling (reference ContactPage)
+5. **Footer year** - Statically set to 2025 (consider making dynamic with new Date().getFullYear() if needed)
