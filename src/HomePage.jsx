@@ -1,5 +1,6 @@
 import "./HomePage.css";
 import { Link } from "react-router-dom";
+import AnimatedCat from "./components/AnimatedCat";
 import hero from "./assets/hero.jpg";
 import explore from "./assets/explore.jpg";
 import content1 from "./assets/content1.jpg";
@@ -13,7 +14,8 @@ export default function HomePage() {
   return (
     <div className="home-page">
 
-      {/* NAVBAR */}
+      {/* ANIMATED CAT */}
+      <AnimatedCat />
       <header className="navbar">
         <div className="logo-container">
           <Link to="/" className="logo-link" aria-label="Studio Kriyaa Home">

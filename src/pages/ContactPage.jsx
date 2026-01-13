@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import emailjs from "@emailjs/browser";
+import AnimatedCat from "../components/AnimatedCat";
 import logo from "../assets/Union.png";
 import contactImage from "../assets/contactus.jpg";
 import "../HomePage.css";
@@ -70,6 +71,10 @@ export default function ContactPage() {
 
   return (
     <div className="page">
+
+      {/* ANIMATED CAT */}
+      <AnimatedCat />
+
       {/* NAVBAR */}
       <header className="navbar">
         <div className="logo-container">

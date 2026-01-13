@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import AnimatedCat from "../components/AnimatedCat";
 import logo from "../assets/Union.png";
 import aboutImage from "../assets/about.jpg";
 import "../HomePage.css";
@@ -7,6 +8,10 @@ import "../styles/Pages.css";
 export default function AboutPage() {
   return (
     <div className="page">
+
+      {/* ANIMATED CAT */}
+      <AnimatedCat />
+
       {/* NAVBAR */}
       <header className="navbar">
         <div className="logo-container">
