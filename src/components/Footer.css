@@ -1,0 +1,9 @@
+.footer {
+  background: linear-gradient(135deg, #e6d8c6 0%, #d1a97a 100%);
+  padding: 80px;
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid rgba(212, 165, 116, 0.18);
+}
+
+/* all your other CSS rules */
