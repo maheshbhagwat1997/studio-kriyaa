@@ -236,34 +236,44 @@ export default function ContactPage() {
 
       {/* FOOTER */}
       <footer className="footer">
-        <div className="footer-logo">
-          <Link to="/"><img src={logo} alt="Studio Kriyaa logo" className="footer-logo-img" /> Studio Kriyaa</Link>
-        </div>
-        <div className="footer-columns">
-          <div className="footer-col">
-            <h4>Quick Links</h4>
-            <Link to="/">Home</Link>
-            <Link to="/about">About</Link>
-            <Link to="/services">Services</Link>
-            <Link to="/contact">Contact</Link>
-          </div>
-          <div className="footer-col">
-            <h4>Services</h4>
-            <p>Residential Design</p>
-            <p>Commercial Design</p>
-            <p>Space Planning</p>
-            <p>Consultation</p>
-          </div>
-          <div className="footer-col">
-            <h4>Connect</h4>
-            <p>Instagram</p>
-            <p>Facebook</p>
-            <p>LinkedIn</p>
-            <p>Behance</p>
-          </div>
-        </div>
-        <p className="copyright">© 2025 Studio Kriyaa. All rights reserved.</p>
-      </footer>
+  <div className="footer-logo footer-logo-top">
+    <Link to="/">
+      <img src={logo} alt="Studio Kriyaa logo" className="footer-logo-img" /> <span style={{ color: '#111' }}>Studio Kriyaa</span>
+    </Link>
+  </div>
+
+  <div className="footer-columns">
+
+    <div className="footer-col">
+      <h4>Quick Links</h4>
+      <Link to="/">Home</Link>
+      <Link to="/about">About</Link>
+      <Link to="/services">Services</Link>
+      <Link to="/contact">Contact</Link>
+    </div>
+
+    <div className="footer-col">
+      <h4>Explore</h4>
+      <a href="#furniture" className="footer-link">Furniture</a>
+      <a href="#decor" className="footer-link">Decor</a>
+      <a href="#lighting" className="footer-link">Lighting</a>
+      <a href="#textiles" className="footer-link">Textiles</a>
+    </div>
+
+    <div className="footer-col">
+      <h4>Connect</h4>
+      <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="footer-link">Instagram</a>
+      <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="footer-link">Facebook</a>
+      <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="footer-link">LinkedIn</a>
+      <a href="https://behance.net" target="_blank" rel="noopener noreferrer" className="footer-link">Behance</a>
+    </div>
+
+  </div>
+
+
+
+  <p className="copyright">© 2025 Studio Kriyaa. All rights reserved.</p>
+</footer>
     </div>
   );
 }
