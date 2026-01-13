@@ -223,6 +223,10 @@ export default function ContactPage() {
                 </p>
               )}
             </form>
+            <div className="email-connect">
+              <p>Or email us directly at:</p>
+              <a href="mailto:contact.studiokriyaa@gmail.com" className="email-link">contact.studiokriyaa@gmail.com</a>
+            </div>
           </div>
         </div>
       </section>
