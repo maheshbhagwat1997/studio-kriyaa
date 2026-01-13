@@ -1,11 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './AnimatedCat.css';
 
 export default function AnimatedCat() {
+  const [showMessage, setShowMessage] = useState(false);
+  const [isWaving, setIsWaving] = useState(false);
+
+  const handleCatClick = () => {
+    setShowMessage(true);
+    setIsWaving(true);
+    setTimeout(() => {
+      setShowMessage(false);
+      setIsWaving(false);
+    }, 3000);
+  };
+
   return (
-    <div className="cat-container">
+    <div className="cat-container" onClick={handleCatClick}>
       <div className="cat-wrapper">
-        <div className="cat">
+        <div className={`cat ${isWaving ? 'waving' : ''}`}>
           <div className="cat-head">
             {/* Left Ear */}
             <div className="cat-ear cat-ear-left"></div>
@@ -43,15 +55,32 @@ export default function AnimatedCat() {
             <div className="cat-belly"></div>
           </div>
           
+          {/* Whiskers */}
+          <div className="cat-whiskers">
+            <div className="cat-whisker whisker-left-1"></div>
+            <div className="cat-whisker whisker-left-2"></div>
+            <div className="cat-whisker whisker-right-1"></div>
+            <div className="cat-whisker whisker-right-2"></div>
+          </div>
+          
+          {/* Cheeks */}
+          <div className="cat-cheek cat-cheek-left"></div>
+          <div className="cat-cheek cat-cheek-right"></div>
+          
+          {/* Legs */}
+          <div className="cat-leg cat-leg-left"></div>
+          <div className="cat-leg cat-leg-right"></div>
+          
           {/* Tail */}
           <div className="cat-tail"></div>
         </div>
 
-        {/* Speech Bubble */}
-        <div className="speech-bubble">
-          <span className="speech-text">Hii!</span>
-          <div className="speech-tail"></div>
-        </div>
+        {/* Speech Bubble - Only show when clicked */}
+        {showMessage && (
+          <div className="speech-bubble">
+            <span>Hii!</span>
+          </div>
+        )}
       </div>
     </div>
   );
