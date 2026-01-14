@@ -8,19 +8,17 @@ export default function ScrollToTop({ behavior = "smooth" }) {
   useEffect(() => {
     // Immediately scroll to top on route change
     if (typeof window !== "undefined") {
-      // Use instant scroll for immediate feedback
-      window.scrollTo(0, 0);
+      // Force instant scroll to top
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: "instant"
+      });
       
-      // Then apply smooth behavior if specified
-      setTimeout(() => {
-        if (behavior === "smooth" && typeof window.__smoothScroll === "function") {
-          window.__smoothScroll(0, 0, { duration: 600 }).then(() => {
-            initEntranceAnimations();
-          });
-        } else {
-          initEntranceAnimations();
-        }
-      }, 0);
+      // Reinitialize entrance animations after a short delay
+      requestAnimationFrame(() => {
+        initEntranceAnimations();
+      });
     }
   }, [pathname, behavior]);
 
