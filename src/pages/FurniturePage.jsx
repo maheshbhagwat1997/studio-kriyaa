@@ -63,8 +63,8 @@ export default function FurniturePage() {
       <section className="explore-categories animate-on-scroll" style={{ padding: "80px", backgroundColor: "#fff" }}>
         <h2 style={{ textAlign: "center", marginBottom: "60px", fontSize: "36px", color: "var(--secondary-color)" }}>Our Furniture Approach</h2>
         
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "40px", maxWidth: "1200px", margin: "0 auto" }}>
-          <div style={{ textAlign: "center", padding: "30px", borderRadius: "12px", backgroundColor: "#faf8f5", border: "1px solid #e8dcc8" }}>
+        <div className="service-detail-grid" style={{ maxWidth: "1200px", margin: "0 auto" }}>
+          <div className="service-detail-card">
             <div style={{ fontSize: "48px", marginBottom: "16px" }}>🪑</div>
             <h3 style={{ color: "var(--secondary-color)", marginBottom: "12px" }}>Timeless Classics</h3>
             <p style={{ color: "#666", lineHeight: "1.6" }}>
@@ -72,7 +72,7 @@ export default function FurniturePage() {
             </p>
           </div>
 
-          <div style={{ textAlign: "center", padding: "30px", borderRadius: "12px", backgroundColor: "#faf8f5", border: "1px solid #e8dcc8" }}>
+          <div className="service-detail-card">
             <div style={{ fontSize: "48px", marginBottom: "16px" }}>🛋️</div>
             <h3 style={{ color: "var(--secondary-color)", marginBottom: "12px" }}>Comfort First</h3>
             <p style={{ color: "#666", lineHeight: "1.6" }}>
@@ -80,7 +80,7 @@ export default function FurniturePage() {
             </p>
           </div>
 
-          <div style={{ textAlign: "center", padding: "30px", borderRadius: "12px", backgroundColor: "#faf8f5", border: "1px solid #e8dcc8" }}>
+          <div className="service-detail-card">
             <div style={{ fontSize: "48px", marginBottom: "16px" }}>♻️</div>
             <h3 style={{ color: "var(--secondary-color)", marginBottom: "12px" }}>Sustainable Choices</h3>
             <p style={{ color: "#666", lineHeight: "1.6" }}>

@@ -774,3 +774,54 @@
 
   html, body { overflow-x: hidden; }
 }
+
+/* Service detail pages grid and cards */
+.service-detail-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 40px;
+}
+
+.service-detail-card {
+  text-align: center;
+  padding: 30px;
+  border-radius: 12px;
+  background-color: #faf8f5;
+  border: 1px solid #e8dcc8;
+}
+
+/* Mobile responsiveness for service detail cards */
+@media (max-width: 768px) {
+  .service-detail-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .service-detail-card {
+    padding: 24px 16px;
+  }
+
+  .explore-categories {
+    padding: 40px 16px !important;
+  }
+
+  .explore-categories h2 {
+    font-size: 28px !important;
+    margin-bottom: 32px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .service-detail-card {
+    padding: 20px 12px;
+  }
+
+  .explore-categories {
+    padding: 32px 12px !important;
+  }
+
+  .explore-categories h2 {
+    font-size: 24px !important;
+    margin-bottom: 24px !important;
+  }
+}
