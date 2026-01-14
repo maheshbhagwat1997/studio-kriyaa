@@ -126,81 +126,149 @@
 /* RESPONSIVE DESIGN */
 
 @media (max-width: 768px) {
+  .story-hero {
+    padding: 60px 16px 40px;
+  }
+
   .story-hero h1 {
-    font-size: 2.2rem;
+    font-size: 28px;
+    line-height: 1.3;
   }
 
   .story-hero p {
-    font-size: 1.1rem;
+    font-size: 15px;
+    line-height: 1.5;
   }
 
   .story-accordion {
-    margin: 60px auto;
+    margin: 40px auto;
+    padding: 0 12px;
+    max-width: 100%;
+  }
+
+  .accordion-item {
+    margin-bottom: 12px;
+    border-radius: 8px;
   }
 
   .accordion-header {
-    padding: 20px 20px;
+    padding: 18px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
   }
 
   .accordion-header h2 {
-    font-size: 1.25rem;
+    font-size: 18px;
+    font-weight: 600;
+    flex: 1;
+    margin: 0;
+    line-height: 1.4;
   }
 
   .accordion-icon {
-    font-size: 1.75rem;
+    font-size: 18px;
+    margin-left: 12px;
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+  }
+
+  .accordion-item.active .accordion-icon {
+    transform: rotate(180deg);
+  }
+
+  .accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+
+  .accordion-item.active .accordion-content {
+    max-height: 1000px;
   }
 
   .accordion-content p {
-    padding: 24px 20px 16px;
-    font-size: 1rem;
+    padding: 16px 16px;
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 0;
   }
 
   .accordion-images {
     grid-template-columns: 1fr;
-    padding: 0 20px 24px;
+    padding: 0 16px 16px;
     gap: 12px;
   }
 
   .accordion-images img {
+    width: 100%;
     height: 220px;
+    object-fit: cover;
+    border-radius: 8px;
   }
 }
 
 @media (max-width: 480px) {
   .story-hero {
-    padding: 100px 15px 60px;
+    padding: 50px 12px 32px;
   }
 
   .story-hero h1 {
-    font-size: 1.8rem;
+    font-size: 24px;
+    line-height: 1.25;
   }
 
   .story-hero p {
-    font-size: 1rem;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .story-accordion {
+    margin: 32px auto;
+    padding: 0 8px;
+  }
+
+  .accordion-item {
+    margin-bottom: 10px;
+    border-radius: 6px;
   }
 
   .accordion-header {
-    padding: 18px 16px;
+    padding: 16px 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 
   .accordion-header h2 {
-    font-size: 1.1rem;
+    font-size: 16px;
+    font-weight: 600;
+    flex: 1;
+    line-height: 1.3;
   }
 
   .accordion-icon {
-    font-size: 1.5rem;
+    font-size: 16px;
+    margin-left: 8px;
+    flex-shrink: 0;
   }
 
   .accordion-content p {
-    padding: 20px 16px 14px;
-    font-size: 0.95rem;
+    padding: 14px 12px;
+    font-size: 13px;
+    line-height: 1.6;
   }
 
   .accordion-images {
-    padding: 0 16px 20px;
+    padding: 0 12px 14px;
+    grid-template-columns: 1fr;
+    gap: 10px;
   }
 
   .accordion-images img {
-    height: 200px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 6px;
   }
 }
