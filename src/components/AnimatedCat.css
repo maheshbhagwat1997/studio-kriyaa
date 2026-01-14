@@ -8,323 +8,75 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.cat-container:hover {
+  transform: scale(1.05);
+}
+
+.cat-container:active {
+  transform: scale(0.95);
 }
 
 .cat-wrapper {
   position: relative;
-  width: 80px;
-  height: 110px;
-}
-
-/* MAIN CAT STYLING */
-.cat {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  animation: catBounce 2s ease-in-out infinite;
-}
-
-/* CAT HEAD - Made rounder and cuter */
-.cat-head {
-  position: absolute;
-  top: 5px;
-  left: 10px;
-  width: 60px;
-  height: 60px;
-  background: #FF9A56;
-  border-radius: 65% 65% 60% 60%;
-  box-shadow: inset -2px -2px 4px rgba(0, 0, 0, 0.1);
-  z-index: 10;
-}
-
-/* CAT EARS - Triangle style for cuter look */
-.cat-ear {
-  position: absolute;
-  width: 0;
-  height: 0;
-  border-left: 12px solid transparent;
-  border-right: 12px solid transparent;
-  border-bottom: 20px solid #FF9A56;
-  filter: drop-shadow(-1px -1px 2px rgba(0, 0, 0, 0.1));
-}
-
-.cat-ear::before {
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 0;
-  border-left: 7px solid transparent;
-  border-right: 7px solid transparent;
-  border-bottom: 12px solid #FFB380;
-  top: 4px;
-  left: -7px;
-}
-
-.cat-ear-left {
-  top: -10px;
-  left: 8px;
-  transform: rotate(-10deg);
-}
-
-.cat-ear-right {
-  top: -10px;
-  right: 8px;
-  transform: rotate(10deg);
-}
-
-/* CAT FACE */
-.cat-face {
-  position: absolute;
-  width: 100%;
-  height: 100%;
+  width: 100px;
+  height: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-/* EYES - Bigger and cuter with sparkle */
-.cat-eye {
-  position: absolute;
-  width: 12px;
-  height: 16px;
-  background: #2C3E50;
-  border-radius: 50%;
+/* REALISTIC CAT STYLING */
+.realistic-cat {
+  position: relative;
+  width: 100%;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  animation: catBlink 3s ease-in-out infinite;
+  animation: catBounce 3s ease-in-out infinite;
 }
 
-.cat-eye::before {
-  content: '';
-  position: absolute;
-  width: 4px;
-  height: 4px;
-  background: white;
-  border-radius: 50%;
-  top: 3px;
-  left: 3px;
-  box-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
+/* EMOJI CAT */
+.emoji-cat {
+  font-size: 90px;
+  filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.15));
+  animation: catBreathing 2.5s ease-in-out infinite;
+  cursor: pointer;
+  transition: transform 0.2s ease;
 }
 
-.cat-eye-left {
-  left: 15px;
-  top: 20px;
+.realistic-cat:hover .emoji-cat {
+  transform: rotate(-8deg) scale(1.08);
 }
 
-.cat-eye-right {
-  right: 15px;
-  top: 20px;
+.cat-image {
+  font-size: 80px;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+  transition: transform 0.3s ease;
+  animation: catBreathing 2s ease-in-out infinite;
 }
 
-/* NOSE - Small and cute */
-.cat-nose {
-  position: absolute;
-  width: 6px;
-  height: 5px;
-  background: #FFB380;
-  border-radius: 50% 50% 60% 60%;
-  top: 35px;
-  left: 50%;
-  transform: translateX(-50%);
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-}
-
-/* MOUTH */
-.cat-mouth {
-  position: absolute;
-  top: 38px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 16px;
-  height: 8px;
-}
-
-.cat-mouth::before,
-.cat-mouth::after {
-  content: '';
-  position: absolute;
-  width: 8px;
-  height: 6px;
-  border: 1px solid #FFB380;
-  border-radius: 0 0 50% 50%;
-  border-top: none;
-}
-
-.cat-mouth::before {
-  left: 0;
-}
-
-.cat-mouth::after {
-  right: 0;
-}
-
-/* WHISKERS - Delicate and cute */
-.cat-whiskers {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-}
-
-.cat-whisker {
-  position: absolute;
-  height: 1px;
-  background: rgba(255, 154, 86, 0.6);
-  top: 30px;
-}
-
-.whisker-left-1 {
-  width: 18px;
-  left: -10px;
+.realistic-cat:hover .cat-image {
   transform: rotate(-5deg);
 }
 
-.whisker-left-2 {
-  width: 16px;
-  left: -8px;
-  top: 35px;
-  transform: rotate(5deg);
-}
-
-.whisker-right-1 {
-  width: 18px;
-  right: -10px;
-  transform: rotate(5deg);
-}
-
-.whisker-right-2 {
-  width: 16px;
-  right: -8px;
-  top: 35px;
-  transform: rotate(-5deg);
-}
-
-/* CHEEKS */
-.cat-cheek {
+/* WAVING PAW */
+.waving-paw {
   position: absolute;
-  width: 12px;
-  height: 8px;
-  background: rgba(255, 179, 128, 0.4);
-  border-radius: 50%;
-  top: 32px;
-}
-
-.cat-cheek-left {
-  left: 6px;
-}
-
-.cat-cheek-right {
-  right: 6px;
-}
-
-/* BELLY */
-.cat-belly {
-  position: absolute;
-  width: 24px;
-  height: 20px;
-  background: #FFB380;
-  border-radius: 50%;
-  top: 40px;
-  left: 50%;
-  transform: translateX(-50%);
-  box-shadow: inset -1px -1px 2px rgba(0, 0, 0, 0.05);
-}
-
-/* CAT BODY */
-.cat-body {
-  position: absolute;
-  bottom: 12px;
-  left: 15px;
-  width: 50px;
-  height: 30px;
-  background: #FF9A56;
-  border-radius: 40% 40% 50% 50%;
-  box-shadow: inset -1px -1px 2px rgba(0, 0, 0, 0.1);
-}
-
-/* CAT ARMS */
-.cat-arm {
-  position: absolute;
-  width: 8px;
-  height: 22px;
-  background: #FF9A56;
-  border-radius: 40%;
-  top: 55px;
-  box-shadow: inset -1px -1px 2px rgba(0, 0, 0, 0.1);
-}
-
-.cat-arm-left {
-  left: 18px;
-  transform-origin: top center;
-  animation: catWave 1.5s ease-in-out infinite;
-}
-
-.cat-arm-right {
-  right: 18px;
-  transform-origin: top center;
-  animation: catWave 1.5s ease-in-out infinite 0.3s;
-}
-
-.cat-arm::after {
-  content: '';
-  position: absolute;
-  width: 9px;
-  height: 9px;
-  background: #FFB380;
-  border-radius: 50%;
-  bottom: -3px;
-  left: -0.5px;
-}
-
-/* CAT LEGS */
-.cat-leg {
-  position: absolute;
-  width: 10px;
-  height: 24px;
-  background: #FF9A56;
-  border-radius: 20%;
-  bottom: 0;
-  box-shadow: inset -1px -1px 2px rgba(0, 0, 0, 0.1);
-}
-
-.cat-leg::after {
-  content: '';
-  position: absolute;
-  width: 12px;
-  height: 8px;
-  background: #FFB380;
-  border-radius: 50%;
-  bottom: -2px;
-  left: -1px;
-}
-
-.cat-leg-left {
-  left: 20px;
-}
-
-.cat-leg-right {
-  right: 20px;
-}
-
-/* CAT TAIL */
-.cat-tail {
-  position: absolute;
-  width: 6px;
-  height: 35px;
-  background: #FF9A56;
-  border-radius: 50%;
-  bottom: 15px;
-  right: 8px;
-  transform-origin: bottom center;
-  animation: catTailWag 2s ease-in-out infinite;
-  box-shadow: inset -1px -1px 2px rgba(0, 0, 0, 0.1);
+  font-size: 40px;
+  top: -10px;
+  right: -5px;
+  animation: pawWave 0.6s ease-in-out 5;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
 }
 
 /* SPEECH BUBBLE - Enhanced and floating */
 .speech-bubble {
   position: absolute;
-  top: -65px;
+  top: -85px;
   left: 50%;
   transform: translateX(-50%);
   background: linear-gradient(135deg, #FFD700, #FFA500);
@@ -341,6 +93,25 @@
   text-align: center;
   animation: speechPopIn 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55),
              speechFloat 2s ease-in-out infinite;
+}
+
+/* Assistant-specific bubble styling */
+.assistant-bubble {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: 3px solid #5a67d8;
+  color: white;
+  font-size: 14px;
+  padding: 12px 16px;
+  max-width: 220px;
+  white-space: normal;
+  line-height: 1.4;
+  text-align: left;
+  font-weight: 500;
+  top: -100px;
+}
+
+.assistant-bubble::after {
+  border-top-color: #5a67d8;
 }
 
 .speech-bubble span {
@@ -361,60 +132,60 @@
   border-top: 12px solid #FF9A56;
 }
 
-/* WAVING STATE - Raised hand animation */
-.cat.waving .cat-arm-left {
-  animation: catRaiseHand 1s ease-in-out 3;
+/* WAVING STATE */
+.realistic-cat.waving {
+  animation: catExcitement 0.3s ease-in-out 6 !important;
+}
+
+.realistic-cat.waving .emoji-cat {
+  animation: catExcitement 0.3s ease-in-out 6;
 }
 
 /* ANIMATIONS */
 
-/* Cat bounce */
+/* Cat gentle bounce */
 @keyframes catBounce {
   0%, 100% {
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
   }
   50% {
-    transform: translateY(-8px);
+    transform: translateY(-6px) scale(1.02);
   }
 }
 
-/* Cat wave arms */
-@keyframes catWave {
+/* Cat breathing effect */
+@keyframes catBreathing {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+/* Cat excitement when clicked */
+@keyframes catExcitement {
+  0%, 100% {
+    transform: rotate(0deg) scale(1);
+  }
+  25% {
+    transform: rotate(-3deg) scale(1.03);
+  }
+  75% {
+    transform: rotate(3deg) scale(1.03);
+  }
+}
+
+/* Paw waving animation */
+@keyframes pawWave {
   0%, 100% {
     transform: rotate(0deg);
   }
-  50% {
-    transform: rotate(10deg);
+  25% {
+    transform: rotate(-30deg);
   }
-}
-
-/* Cat tail wag */
-@keyframes catTailWag {
-  0%, 100% {
-    transform: rotate(-15deg);
-  }
-  50% {
-    transform: rotate(15deg);
-  }
-}
-
-/* Cat blink */
-@keyframes catBlink {
-  0%, 90%, 100% {
-    transform: scaleY(1);
-  }
-  95% {
-    transform: scaleY(0.1);
-  }
-}
-
-/* Cat raise hand (waving) */
-@keyframes catRaiseHand {
-  0%, 100% {
-    transform: rotate(0deg) translateY(0);
-  }
-  50% {
-    transform: rotate(-90deg) translateY(-5px);
+  75% {
+    transform: rotate(30deg);
   }
 }
 
@@ -464,8 +235,18 @@
   }
   
   .cat-wrapper {
-    width: 70px;
-    height: 95px;
+    width: 85px;
+    height: 85px;
+  }
+  
+  .cat-image {
+    font-size: 65px;
+  }
+  
+  .waving-paw {
+    font-size: 35px;
+    top: -8px;
+    right: -3px;
   }
   
   .speech-bubble {
@@ -482,8 +263,18 @@
   }
   
   .cat-wrapper {
-    width: 60px;
-    height: 85px;
+    width: 70px;
+    height: 70px;
+  }
+  
+  .cat-image {
+    font-size: 55px;
+  }
+  
+  .waving-paw {
+    font-size: 30px;
+    top: -5px;
+    right: -2px;
   }
   
   .speech-bubble {

@@ -136,10 +136,10 @@ export default function ServicesPage() {
 
     <div className="footer-col">
       <h4>Explore</h4>
-      <a href="#furniture" className="footer-link">Furniture</a>
-      <a href="#decor" className="footer-link">Decor</a>
-      <a href="#lighting" className="footer-link">Lighting</a>
-      <a href="#textiles" className="footer-link">Textiles</a>
+      <Link to="/furniture" className="footer-link">Furniture</Link>
+      <Link to="/decor" className="footer-link">Decor</Link>
+      <Link to="/lighting" className="footer-link">Lighting</Link>
+      <Link to="/textiles" className="footer-link">Textiles</Link>
     </div>
 
     <div className="footer-col">

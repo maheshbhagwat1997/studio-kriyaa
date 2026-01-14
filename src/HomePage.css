@@ -92,56 +92,13 @@ h1, h2, h3, h4, h5, h6 {
   position: relative;
 }
 
-.logo-ring {
-  position: absolute;
-  left: 16px; /* positioned on the logo icon */
-  top: 50%;
-  width: 64px; /* larger size */
-  height: 64px;
-  transform: translate(-50%, -50%);
-  pointer-events: none;
-  z-index: 0;
-  color: var(--primary-color);
-  opacity: 0.9;
-  filter: drop-shadow(0 0 8px rgba(201, 144, 90, 0.6)) drop-shadow(0 0 16px rgba(201, 144, 90, 0.3));
-}
-
+/* Logo link styling */
 .logo-link .logo-icon,
 .logo-link .logo {
   position: relative;
   z-index: 2;
 }
 
-/* The SVG rotates smoothly like a sun */
-.logo-ring svg { 
-  width: 100%;
-  height: 100%;
-  display: block;
-  transform-origin: 50% 50%;
-  animation: rotate-sun 8s linear infinite;
-}
-
-.logo-ring .ring-line {
-  stroke-dasharray: 6 2;
-  stroke-dashoffset: 0;
-}
-
-@keyframes rotate-sun {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .logo-ring svg { animation: none !important; }
-}
-
-@keyframes rotate-slow {
-  to { transform: rotate(360deg); }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .logo-ring svg { animation: none !important; }
-}
 
 .logo-container:hover .logo {
   color: #1a1a1a;
@@ -281,26 +238,26 @@ h1, h2, h3, h4, h5, h6 {
 .hero-btn {
   margin-top: 40px;
   padding: 16px 40px;
-  background: rgba(201, 144, 90, 0.92);
+  background: rgba(255, 255, 255, 0.25);
   color: #fff;
-  border: 2px solid rgba(201, 144, 90, 0.92);
+  border: 2px solid rgba(255, 255, 255, 0.4);
   font-size: 16px;
   font-weight: 600;
   cursor: pointer;
   border-radius: 8px;
   transition: all 0.4s ease;
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(10px);
   animation: slideInLeft 0.8s ease-out 0.6s both;
   display: inline-block;
   text-decoration: none;
-  box-shadow: 0 4px 12px rgba(201, 144, 90, 0.25);
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
 }
 
 .hero-btn:hover {
-  background: #d4a574;
-  border-color: #d4a574;
+  background: rgba(255, 255, 255, 0.35);
+  border-color: rgba(255, 255, 255, 0.6);
   transform: translateY(-4px);
-  box-shadow: 0 8px 28px rgba(201, 144, 90, 0.5);
+  box-shadow: 0 8px 28px rgba(255, 255, 255, 0.2);
 }
 
 .hero-btn:active {
@@ -330,6 +287,33 @@ h1, h2, h3, h4, h5, h6 {
   cursor: pointer;
   position: relative;
   overflow: hidden;
+}
+
+.process-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(201, 144, 90, 0.1) 0%, rgba(201, 144, 90, 0.05) 100%);
+  border-radius: 50%;
+  transition: all 0.4s ease;
+}
+
+.process-icon svg {
+  width: 48px;
+  height: 48px;
+  transition: transform 0.4s ease;
+}
+
+.process-card:hover .process-icon {
+  background: linear-gradient(135deg, rgba(201, 144, 90, 0.2) 0%, rgba(212, 165, 116, 0.15) 100%);
+  transform: scale(1.1) rotate(5deg);
+}
+
+.process-card:hover .process-icon svg {
+  transform: scale(1.05);
 }
 
 .process-card::before {
@@ -445,6 +429,15 @@ h1, h2, h3, h4, h5, h6 {
   transform: translateY(0);
 }
 
+.content-image img {
+  width: 100%;
+  height: auto;
+  max-height: 500px;
+  object-fit: cover;
+  border-radius: 20px;
+  display: block;
+}
+
 .content-image:hover {
   transform: translateY(-10px);
   box-shadow: 0 15px 50px rgba(0,0,0,0.25);
@@ -507,6 +500,21 @@ h1, h2, h3, h4, h5, h6 {
   color: #fff;
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(201, 144, 90, 0.3);
+}
+
+/* Frosted transparent buttons for hero sections */
+.hero-header .hero-btn,
+.promo-section .hero-btn {
+  background: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+}
+
+.hero-header .hero-btn:hover,
+.promo-section .hero-btn:hover {
+  background: rgba(255, 255, 255, 0.35);
+  border-color: rgba(255, 255, 255, 0.6);
+  box-shadow: 0 8px 28px rgba(255, 255, 255, 0.2);
 }
 
 /* PROMO SECTION */

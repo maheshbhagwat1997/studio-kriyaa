@@ -1,19 +1,26 @@
 # Studio Kriyaa - AI Copilot Instructions
 
 ## Project Overview
-Studio Kriyaa is a React + Vite + React Router portfolio site for an interior design studio. It's a **multi-page router-based application** with dedicated page components for Home, About, Services, and Contact. The site showcases design projects and includes a contact form with EmailJS integration.
+Studio Kriyaa is a React + Vite + React Router portfolio site for an interior design studio. It's a **multi-page router-based application** with 9 routed pages showcasing design services and portfolio. The site includes a contact form with EmailJS integration and custom scroll-triggered animations.
 
 ## Current Architecture
 
 ### Key Components
-- **App.jsx** - Router entry point with ScrollToTop behavior management
+- **App.jsx** - Router entry point with ScrollToTop behavior management, defines all 9 routes
 - **HomePage.jsx** - Home page with hero, process cards, content sections, and portfolio showcase
-- **src/pages/** - Individual page components:
+- **src/pages/** - Individual page components (9 total):
   - `AboutPage.jsx` - About/philosophy with feature cards
   - `ServicesPage.jsx` - 6-item services grid + design process steps
   - `ContactPage.jsx` - Contact form (EmailJS) + info blocks + social links
+  - `ProjectStoryPage.jsx` - Interactive accordion showcase with collapsible sections and image galleries
+  - `FurniturePage.jsx` - Furniture selection service showcase
+  - `DecorPage.jsx` - Decor service showcase
+  - `LightingPage.jsx` - Lighting service showcase
+  - `TextilesPage.jsx` - Textiles service showcase
 - **src/components/** - Reusable UI components:
   - `Footer.jsx` - Footer component (styling reference only - footer is inline in each page)
+  - `AnimatedCat.jsx` - Interactive Easter egg: clickable cat mascot with wave animation (appears on all pages)
+  - `CatCanvas.jsx` - Additional cat component variant
 - **src/utils/** - Animation utilities:
   - `entrance.js` - Scroll-triggered entrance animations (`.animate-on-scroll` class)
   - `animate.js` - Easing functions, smooth scroll polyfill, requestAnimationFrame wrapper
@@ -31,8 +38,10 @@ Studio Kriyaa is a React + Vite + React Router portfolio site for an interior de
 1. **index.css** - Global variables (colors, typography), scrollbar, `.animate-on-scroll` utility class
 2. **HomePage.css** - Page-level styles (navbar, hero, footer, content sections, process cards)
 3. **Pages.css** - Page template styles (`.page-hero`, feature grids, form styling, service grids)
-4. **Footer.css** - Footer component styles (reference for styling)
-5. **Component-level** - Inline styles in form inputs where necessary
+4. **ProjectStory.css** - Accordion sections and image gallery styles for ProjectStoryPage
+5. **Footer.css** - Footer component styles (reference for styling)
+6. **AnimatedCat.css** - Cat mascot styling with keyframe animations
+7. **Component-level** - Inline styles in form inputs where necessary
 
 ### Color Palette (CSS Variables)
 ```css
@@ -89,6 +98,20 @@ The footer is **identical across all pages** using the same structure as HomePag
 - External forms/social: `<a href="https://..." target="_blank">`
 - Booking form: Google Forms (hardcoded in `hero-btn` links across all pages)
 
+### Interactive Components Pattern
+**AnimatedCat Easter Egg:**
+- Clickable cat mascot in top-right corner (appears on all pages)
+- Click triggers wave animation + temporary message bubble
+- Uses local state: `showMessage`, `isWaving` (3s timeout)
+- Pure CSS animations with `@keyframes` for wave effect
+- Example: Copy from `AnimatedCat.jsx` for similar interactive mascots
+
+**ProjectStoryPage Accordion:**
+- Uses local `useState` to track `openSection` (index or null)
+- `toggleSection(index)` collapses/expands sections
+- Sections array contains title, description, and image arrays
+- CSS handles smooth height transitions with `max-height` trick
+
 ## Development Workflow
 
 ### Build & Run
@@ -114,6 +137,13 @@ npm run lint     # ESLint check
 3. Add `.outline-btn` or `.hero-btn` for CTAs
 4. Styles inherit from HomePage.css
 
+**Adding accordion sections (ProjectStoryPage pattern):**
+1. Store sections data in array: `{ title, description, images[] }`
+2. Use `useState` for `openSection` tracking (index or null)
+3. Map sections with `onClick={() => toggleSection(index)}`
+4. Import `ProjectStory.css` for accordion styling
+5. Image galleries use flexbox with gap and responsive wrapping
+
 **Form submissions:**
 - EmailJS already configured; copy ContactPage pattern
 - Init key: `"VnM6YXmL3J3AjXxmP"`
@@ -135,12 +165,15 @@ npm run lint     # ESLint check
 - `ScrollToTop.jsx` reinitializes entrance animations on route change
 - Pass `behavior="smooth"` to use polyfilled smooth scroll (duration: 600ms)
 - Falls back to instant scroll if native browser support unavailable
+- **Critical**: Automatically called in App.jsx (`<ScrollToTop behavior="smooth" />`)
 
-## Recent Fixes (January 2026)
+## Recent Changes (January 2026)
 
+✅ **Added 4 new service detail pages** - FurniturePage, DecorPage, LightingPage, TextilesPage (9 routes total)
 ✅ **Removed orphaned Footer component** - Unreachable `<Footer />` tag in App.jsx has been removed
-✅ **Standardized footer across all pages** - All pages (About, Services, Contact) now use same footer as HomePage with proper styling
+✅ **Standardized footer across all pages** - All pages (About, Services, Contact, etc.) now use same footer as HomePage with proper styling
 ✅ **Fixed kids2.jpg import path** - Corrected relative path from `../assets/kids2.jpg` to `./assets/kids2.jpg`
+✅ **Added CatCanvas component** - Additional cat animation variant in components/
 
 ## File Structure Best Practices
 
@@ -157,6 +190,7 @@ npm run lint     # ESLint check
 - **Mobile**: Test responsive behavior at 768px and 480px breakpoints
 - **Footer**: Always include the standardized footer matching HomePage structure
 - **Linting**: Run `npm run lint` before committing
+- **Routes**: Add new `<Route>` entries in App.jsx and ensure ScrollToTop is configured
 
 ## Known Conventions
 
@@ -164,4 +198,6 @@ npm run lint     # ESLint check
 2. **Two-column layouts** - Use `.content-section` + `.content-image` + `.content-text` pattern
 3. **CTA buttons** - Use `.hero-btn` (primary) or `.outline-btn` (secondary)
 4. **Form inputs** - Use inline styles for form fields styling (reference ContactPage)
-5. **Footer year** - Statically set to 2025 (consider making dynamic with new Date().getFullYear() if needed)
+5. **Footer year** - Statically set to 2025 (consider making dynamic with `new Date().getFullYear()` if needed)
+6. **Asset imports** - All images from `src/assets/` use `./assets/filename` relative path (NOT `../assets/`)
+7. **Service pages** - FurniturePage, DecorPage, LightingPage, TextilesPage follow identical structure pattern

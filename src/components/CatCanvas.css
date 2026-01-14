@@ -1,0 +1,60 @@
+.cat-canvas-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+}
+
+.cat-canvas-svg {
+  width: 100%;
+  max-width: 280px;
+  height: auto;
+  filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.15));
+  animation: catFloat 4s ease-in-out infinite;
+}
+
+/* Eye blinking animation */
+.eye-group {
+  transition: transform 0.15s ease-out;
+}
+
+.eye-group.blinking {
+  animation: blink 0.3s ease-in-out;
+}
+
+@keyframes blink {
+  0% {
+    transform: scaleY(1);
+  }
+  50% {
+    transform: scaleY(0.05);
+  }
+  100% {
+    transform: scaleY(1);
+  }
+}
+
+/* Floating animation */
+@keyframes catFloat {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* Responsive sizing */
+@media (max-width: 768px) {
+  .cat-canvas-svg {
+    max-width: 240px;
+  }
+}
+
+@media (max-width: 480px) {
+  .cat-canvas-svg {
+    max-width: 200px;
+  }
+}

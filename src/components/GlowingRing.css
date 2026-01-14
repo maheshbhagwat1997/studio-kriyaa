@@ -1,0 +1,35 @@
+.glowing-ring {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  width: 64px;
+  height: 64px;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.95;
+  filter: contrast(1.2) brightness(1.1);
+  border-radius: 50%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .glowing-ring {
+    opacity: 0.7;
+  }
+}
+
+@media (max-width: 768px) {
+  .glowing-ring {
+    width: 48px;
+    height: 48px;
+    left: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .glowing-ring {
+    width: 40px;
+    height: 40px;
+    left: 10px;
+  }
+}
