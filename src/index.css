@@ -97,22 +97,32 @@ button:active {
   }
 }
 
-/* Scrollbar styling */
+/* Scrollbar styling - hidden */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 0px;
+  display: none;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--light-bg);
+  display: none;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--primary-color);
-  border-radius: 5px;
+  display: none;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--accent-color);
+  display: none;
+}
+
+/* Hide scrollbar for Firefox */
+* {
+  scrollbar-width: none;
+}
+
+/* Hide scrollbar for IE/Edge */
+* {
+  -ms-overflow-style: none;
 }
 
 /* Utility class for JS-driven entrance animations */
