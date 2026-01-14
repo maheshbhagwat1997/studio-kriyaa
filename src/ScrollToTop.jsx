@@ -17,7 +17,7 @@ export default function ScrollToTop({ behavior = "auto" }) {
       } else {
         try {
           window.scrollTo({ top: 0, left: 0, behavior });
-        } catch (e) {
+        } catch {
           window.scrollTo(0, 0);
         }
         initEntranceAnimations();

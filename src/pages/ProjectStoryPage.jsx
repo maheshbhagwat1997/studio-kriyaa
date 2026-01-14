@@ -10,8 +10,6 @@ import mood3 from "../assets/mood3.jpg";
 import process1 from "../assets/process1.jpg";
 import process2 from "../assets/process2.jpg";
 import process3 from "../assets/process3.jpg";
-import final1 from "../assets/final1.jpg";
-import final2 from "../assets/final2.jpg";
 import Nkids21 from "../assets/Nkids2 (1).jpg";
 import Nkids22 from "../assets/Nkids2 (2).jpg";
 import Nkids23 from "../assets/Nkids2 (3).jpg";

@@ -39,12 +39,12 @@ export function polyfillSmoothScroll() {
   let hasNative = true;
   try {
     window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
-  } catch (e) {
+  } catch {
     hasNative = false;
   }
 
   if (hasNative) {
-    window.__smoothScroll = (x, y, opts) => {
+    window.__smoothScroll = (x, y) => {
       window.scrollTo({ top: y, left: x, behavior: 'smooth' });
       return Promise.resolve();
     };
