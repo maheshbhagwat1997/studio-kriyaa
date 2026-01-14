@@ -12,6 +12,9 @@ import process2 from "../assets/process2.jpg";
 import process3 from "../assets/process3.jpg";
 import final1 from "../assets/final1.jpg";
 import final2 from "../assets/final2.jpg";
+import Nkid21 from "../assets/Nkid2 (1).jpg";
+import Nkid22 from "../assets/Nkid2 (2).jpg";
+import Nkid23 from "../assets/Nkid2 (3).jpg";
 
 import "../HomePage.css";
 import "../styles/ProjectStory.css";
@@ -55,7 +58,7 @@ export default function ProjectStoryPage() {
     {
       title: "Final Outcome",
       description: "The culmination of vision, planning, and execution. The completed space embodies the perfect synthesis of form and function, aesthetics and comfort. Every detail reflects the thoughtful design process and collaborative journey, creating an environment that exceeds expectations and transforms daily living.",
-      images: [final1, final2]
+      images: [Nkid21, Nkid22, Nkid23]
     }
   ];
 
