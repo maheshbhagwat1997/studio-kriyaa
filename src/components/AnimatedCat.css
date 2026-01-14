@@ -256,14 +256,10 @@
     top: -55px;
   }
 }
-position: fixed !important;
-    bottom: 15px !important;
-    right: 10px !important;
-    top: auto !important;
-    left: auto !importantth: 480px) {
+
+@media (max-width: 480px) {
   .cat-container {
-    bottom: 80px;
-    right: 15px;
+    display: none;
   }
   
   .cat-wrapper {

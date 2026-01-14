@@ -1032,8 +1032,7 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   .footer-columns {
-    gap: 24px;
-  }16px;
+    gap: 16px;
     flex-direction: row;
   }
 
