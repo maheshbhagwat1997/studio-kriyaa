@@ -1056,7 +1056,8 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   .copyright {
-    font-size: 110px;
+    font-size: 11px;
+    margin-top: 20px;
     padding-top: 16px;
   }
 
