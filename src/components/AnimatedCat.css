@@ -232,11 +232,7 @@
 /* RESPONSIVE */
 @media (max-width: 768px) {
   .cat-container {
-    position: fixed !important;
-    bottom: 20px !important;
-    right: 15px !important;
-    top: auto !important;
-    left: auto !important;
+    display: none;
   }
   
   .cat-wrapper {
