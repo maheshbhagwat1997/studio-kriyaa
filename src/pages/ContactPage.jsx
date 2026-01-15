@@ -9,7 +9,7 @@ import "../HomePage.css";
 import "../styles/Pages.css";
 
 // Initialize EmailJS with your Public Key
-emailjs.init("VnM6YXmL3J3AjXxmP");
+emailjs.init("E1tpEq4mWicb6Gp5A");
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
