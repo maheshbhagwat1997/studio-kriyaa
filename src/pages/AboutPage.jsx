@@ -140,8 +140,8 @@ export default function AboutPage() {
           <div className="founder-actions">
 
             <div className="founder-socials">
-              <a className="social-pill" href="#" target="_blank" rel="noopener noreferrer">Instagram</a>
-              <a className="social-pill" href="#" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+              <a className="social-pill" href="https://www.instagram.com/mhshbhgwt97?igsh=anc2NXdpOWt0emJv" target="_blank" rel="noopener noreferrer">Instagram</a>
+              <a className="social-pill" href="https://www.linkedin.com/in/maheshbhagwat3847?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener noreferrer">LinkedIn</a>
             </div>
           </div>
         </div>
