@@ -1,59 +1,43 @@
-import React, { useState } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
-import './AnimatedCat.css';
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import "./ChatAssistant.css";
 
-export default function AnimatedCat() {
-  const [isChatOpen, setIsChatOpen] = useState(false);
-  const [chatMessages, setChatMessages] = useState([]);
+export default function ChatAssistant() {
+  const [isOpen, setIsOpen] = useState(false);
+  const [messages, setMessages] = useState([]);
   const [showQuestions, setShowQuestions] = useState(true);
-  const [isTyping, setIsTyping] = useState(false);
   const navigate = useNavigate();
-  const location = useLocation();
-
-  // Get greeting based on time of day
-  const getGreeting = () => {
-    const hour = new Date().getHours();
-    if (hour < 12) return "Good morning!";
-    if (hour < 18) return "Good afternoon!";
-    return "Good evening!";
-  };
 
   const toggleChat = () => {
-    setIsChatOpen(!isChatOpen);
-    if (!isChatOpen && chatMessages.length === 0) {
-      setChatMessages([
-        { type: "bot", text: "Hi! I'm Whiskey, your design assistant 🐱 How can I help you today?" },
+    setIsOpen(!isOpen);
+    if (!isOpen && messages.length === 0) {
+      // Initial greeting
+      setMessages([
+        { type: "bot", text: "Hi! I'm your assistant Whiskey 🐱 How can I help you today?" },
       ]);
     }
   };
 
   const handleQuestion = (question, answer, route) => {
-    setIsTyping(true);
-    setChatMessages((prev) => [
+    setMessages((prev) => [
       ...prev,
       { type: "user", text: question },
+      { type: "bot", text: answer },
     ]);
+    setShowQuestions(false);
     
-    setTimeout(() => {
-      setChatMessages((prev) => [
-        ...prev,
-        { type: "bot", text: answer },
-      ]);
-      setIsTyping(false);
-      setShowQuestions(false);
-    }, 800);
-    
+    // Navigate if route provided
     if (route) {
       setTimeout(() => {
-        setIsChatOpen(false);
+        setIsOpen(false);
         navigate(route);
-      }, 2300);
+      }, 1500);
     }
   };
 
   const resetChat = () => {
-    setChatMessages([
-      { type: "bot", text: "Hi! I'm Whiskey, your design assistant 🐱 How can I help you today?" },
+    setMessages([
+      { type: "bot", text: "Hi! I'm your assistant Whiskey 🐱 How can I help you today?" },
     ]);
     setShowQuestions(true);
   };
@@ -88,25 +72,21 @@ export default function AnimatedCat() {
 
   return (
     <>
-      <div 
-        className={`cat-container ${isTyping ? 'speaking' : ''}`} 
+      {/* Floating Cat Icon */}
+      <button
+        className={`chat-cat-btn ${isOpen ? "active" : ""}`}
         onClick={toggleChat}
-        title="Click to chat with Whiskey, your design assistant!"
+        aria-label="Chat with Whiskey"
       >
-        <div className="cat-wrapper">
-          <div className="realistic-cat">
-            {/* Simple emoji cat - cute and realistic */}
-            <div className="emoji-cat">😺</div>
-          </div>
-        </div>
-      </div>
+        🐱
+      </button>
 
       {/* Chat Modal */}
-      {isChatOpen && (
+      {isOpen && (
         <div className="chat-modal">
           <div className="chat-header">
             <div className="chat-title">
-              <span className="chat-cat-icon">😺</span>
+              <span className="chat-cat-icon">🐱</span>
               <span>Whiskey - Your Assistant</span>
             </div>
             <button className="chat-close" onClick={toggleChat} aria-label="Close chat">
@@ -115,20 +95,11 @@ export default function AnimatedCat() {
           </div>
 
           <div className="chat-messages">
-            {chatMessages.map((msg, idx) => (
+            {messages.map((msg, idx) => (
               <div key={idx} className={`chat-message ${msg.type}`}>
                 {msg.text}
               </div>
             ))}
-            {isTyping && (
-              <div className="chat-message bot">
-                <div className="typing-indicator">
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                </div>
-              </div>
-            )}
           </div>
 
           {showQuestions && (

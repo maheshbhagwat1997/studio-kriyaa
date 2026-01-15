@@ -9,11 +9,14 @@ import FurniturePage from "./pages/FurniturePage";
 import DecorPage from "./pages/DecorPage";
 import LightingPage from "./pages/LightingPage";
 import TextilesPage from "./pages/TextilesPage";
+import FloatingActions from "./components/FloatingActions";
 
 export default function App() {
   return (
     <Router>
       <ScrollToTop behavior="smooth" />
+      {/* Global floating contact actions */}
+      <FloatingActions />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />

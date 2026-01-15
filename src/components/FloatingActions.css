@@ -1,0 +1,66 @@
+.floating-actions {
+  position: fixed;
+  right: 16px;
+  top: 35%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 9999;
+}
+
+.fab {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  color: #fff;
+  animation: float 3s ease-in-out infinite;
+}
+.fab svg { width: 22px; height: 22px; }
+.fab-whatsapp { background: #25D366; animation-delay: 0s; }
+.fab-mail { background: #EA4335; animation-delay: 0.5s; }
+.fab:hover { filter: brightness(1.05); animation-play-state: paused; }
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.free-estimate-btn {
+  position: fixed;
+  right: 16px;
+  bottom: 24px;
+  background: #7a468f;
+  color: #fff;
+  padding: 12px 18px;
+  border-radius: 12px;
+  font-weight: 600;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.2);
+  z-index: 9999;
+}
+.free-estimate-btn:hover { filter: brightness(1.05); }
+
+.estimate-modal { position: fixed; inset: 0; z-index: 10000; }
+.backdrop { position: absolute; inset: 0; background: rgba(0,0,0,0.35); }
+.estimate-card {
+  position: relative;
+  z-index: 1;
+  width: min(560px, 92vw);
+  margin: 6vh auto;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 12px 32px rgba(0,0,0,0.25);
+  padding: 18px 18px 22px;
+}
+.estimate-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
+.close-x { font-size: 22px; background: transparent; border: none; cursor: pointer; }
+.estimate-form { display: grid; gap: 12px; }
+.estimate-form label { display: grid; gap: 6px; font-weight: 600; color: var(--secondary-color); }
+.estimate-form input { padding: 10px 12px; border: 1px solid var(--border-accent); border-radius: 8px; }
+.submit { background: var(--primary-color); color: #fff; padding: 10px 14px; border-radius: 8px; font-weight: 600; }
+.status { margin-top: 6px; }
+.status.ok { color: #1a7f37; }
+.status.err { color: #b02a37; }
