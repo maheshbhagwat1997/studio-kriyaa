@@ -158,6 +158,7 @@ npm run lint     # ESLint check
 
 ### Asset Management
 - Images in `src/assets/`, imported as ES modules with correct relative paths (`./assets/filename`)
+- Videos also stored in `src/assets/` and exported via `src/utils/media.js` (e.g., `studioShowreelUrl`)
 - Vite handles optimization
 - CSS/JS can reference via relative imports
 
@@ -166,6 +167,63 @@ npm run lint     # ESLint check
 - Pass `behavior="smooth"` to use polyfilled smooth scroll (duration: 600ms)
 - Falls back to instant scroll if native browser support unavailable
 - **Critical**: Automatically called in App.jsx (`<ScrollToTop behavior="smooth" />`)
+
+### EmailJS Configuration
+- **Public Key**: `"VnM6YXmL3J3AjXxmP"` (must be initialized in ContactPage or main app)
+- **Service ID**: `"service_qlm98yj"`
+- **Template ID**: `"template_kf6vxnk"`
+- **Recipient**: `"contact.studiokriyaa@gmail.com"` (set in EmailJS dashboard template)
+- Import: `import emailjs from "@emailjs/browser"`
+
+## Common Troubleshooting & Debugging
+
+### Animations Not Showing on New Pages
+- **Cause**: `ScrollToTop.jsx` not properly reinitializing animations via `initEntranceAnimations()`
+- **Fix**: Verify `<ScrollToTop behavior="smooth" />` is in `App.jsx` Router component
+- **Check**: Ensure page sections have `.animate-on-scroll` class
+
+### EmailJS Form Not Sending
+- **Cause**: EmailJS public key not initialized or incorrect Service/Template IDs
+- **Check**: Verify `emailjs.init()` is called with `"VnM6YXmL3J3AjXxmP"` before form submission
+- **Debug**: Check browser console for EmailJS errors; verify CORS setup in EmailJS dashboard
+- **Verify**: Service ID `"service_qlm98yj"` and Template ID `"template_kf6vxnk"` match EmailJS account
+
+### Navbar Active Link Not Highlighting
+- **Cause**: NavLink component needs `.active` class instead of `<Link>`
+- **Current Pattern**: Manually add `className="nav-link active"` to current page's nav item
+- **Note**: React Router v7 doesn't auto-match active links; you must manually manage this state
+
+### Images Not Loading
+- **Common Issue**: Import path uses `../assets/` instead of `./assets/`
+- **Correct Pattern**: `import hero from "./assets/hero.jpg"` (relative from component location)
+- **Test**: Check browser DevTools Network tab; verify file exists in `src/assets/`
+
+## Critical Implementation Details
+
+### ScrollToTop Behavior (Essential for Page Transitions)
+- `ScrollToTop.jsx` runs on **every route change** via `useLocation()` hook
+- Immediately scrolls to top using triple-method approach for mobile reliability:
+  1. `window.scrollTo(0, 0)` (standard)
+  2. Sets `document.documentElement.scrollTop = 0` and `document.body.scrollTop = 0` (fallback)
+  3. Repeats with `setTimeout(..., 0)` for mobile rendering race conditions
+- **Critically important**: Reinitializes entrance animations via `initEntranceAnimations()` in a requestAnimationFrame after route change
+- Without this reinitialization, new page sections won't animate in - always keep this in App.jsx
+
+### Entrance Animations Deep Dive
+- `entrance.js` uses `IntersectionObserver` with custom settings:
+  - `rootMargin: '0px 0px -12% 0px'` = triggers when 12% from viewport bottom
+  - `threshold: 0.08` = minimum 8% visibility
+  - `duration: 600ms` with `easeInOutCubic` timing
+  - `translateY: 22px` = slides elements up 22px while fading in
+- **Respects `prefers-reduced-motion`** via `@media (prefers-reduced-motion: reduce)` in CSS
+- **Selector**: `.animate-on-scroll` class required on section elements to activate
+
+### AnimatedCat Easter Egg Behavior
+- Click triggers wave animation + contextual message popup (3-second timeout)
+- Messages are **page-aware**: different messages for `/`, `/about`, `/services`, `/contact`, `/project-story`
+- Also includes **time-aware greetings**: "Good morning/afternoon/evening" based on `Date.getHours()`
+- Uses route-based logic via `useLocation()` to detect current page
+- Pure CSS animations for wave effect via `@keyframes wave-animation` in AnimatedCat.css
 
 ## Recent Changes (January 2026)
 
