@@ -47,10 +47,9 @@ export default function ContactPage() {
         "service_qlm98yj",  // Service ID
         "template_wxfqw7e", // Template ID
         {
-          to_email: "contact.studiokriyaa@gmail.com",
           from_name: formData.name,
-          user_email: formData.email,
-          phone_number: formData.phone || "Not provided",
+          from_email: formData.email,
+          phone: formData.phone || "Not provided",
           project_type: formData.projectType || "Not specified",
           message: formData.message
         }
