@@ -44,7 +44,7 @@ export default function ContactPage() {
     try {
       // Send email using EmailJS to studio email
       const result = await emailjs.send(
-        "service_qlm98yj",  // Service ID
+        "service_i1fp524",  // Service ID
         "template_wxfqw7e", // Template ID
         {
           from_name: formData.name,
