@@ -2,8 +2,11 @@ import { Link } from "react-router-dom";
 import AnimatedCat from "../components/AnimatedCat";
 import logo from "../assets/Union.png";
 import aboutImage from "../assets/about.jpg";
+import founderPhoto from "../assets/Mahesh.jpg";
+import video01 from "../assets/video01.mp4";
 import "../HomePage.css";
 import "../styles/Pages.css";
+import { studioShowreelUrl } from "../utils/media";
 
 export default function AboutPage() {
   return (
@@ -39,6 +42,26 @@ export default function AboutPage() {
       <section className="page-hero animate-on-scroll" style={{ backgroundImage: `url(${aboutImage})`, backgroundSize: "cover", backgroundPosition: "center" }}>
         <h1>About Studio Kriyaa</h1>
         <p>Crafting Luxurious Spaces That Tell Your Story</p>
+      </section>
+
+      {/* SHOWREEL SECTION */}
+      <section className="video-section animate-on-scroll">
+        <h2>Studio Walkthrough</h2>
+        <p>Get a quick feel for how we design, plan, and deliver refined interiors.</p>
+        <div className="video-wrapper">
+          <video
+            className="video-frame"
+            src={studioShowreelUrl}
+            poster={aboutImage}
+            controls
+            autoPlay
+            loop
+            muted
+            playsInline
+          >
+            Your browser does not support the video tag.
+          </video>
+        </div>
       </section>
 
       {/* ABOUT CONTENT */}
@@ -98,11 +121,47 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* FOUNDER INTRO */}
+      <section className="founder-section animate-on-scroll">
+        <div className="founder-photo">
+          <img src={founderPhoto} alt="Mahesh Bhagwat" />
+        </div>
+        <div className="founder-content">
+          <p className="founder-tag">Founder Insight</p>
+          <h2>Hello, I’m Mahesh Bhagwat, the founder of Studio Kriyaa.</h2>
+          <p>
+            I started this studio with a simple belief — that good design has the power to transform the way we live, breathe, and experience our surroundings. For me, design is not decoration; it is emotion, function, and storytelling woven together.
+          </p>
+          <p>
+            Every project I take on is a collaboration built on trust, clarity, and a deep respect for the client’s lifestyle. Studio Kriyaa is my way of bringing purposeful design—kriyaa—into everyday spaces.
+          </p>
+          <p className="founder-signoff">— Mahesh Bhagwat</p>
+          <p className="founder-quote">“Simplicity is not a lack of complexity, but the presence of clarity.”</p>
+          <div className="founder-actions">
+
+            <div className="founder-socials">
+              <a className="social-pill" href="#" target="_blank" rel="noopener noreferrer">Instagram</a>
+              <a className="social-pill" href="#" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA SECTION */}
-      <section className="cta-section animate-on-scroll">
-        <h2>Ready to Transform Your Space?</h2>
-        <p>Let's create something beautiful together</p>
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfysuWTNmRABGUmHBBm7ut53rIxH7oLA5FoKl5xrRCNzjncgw/viewform" target="_blank" rel="noopener noreferrer" className="hero-btn">Get Started</a>
+      <section className="cta-section cta-video animate-on-scroll">
+        <video
+          className="cta-bg-video"
+          src={video01}
+          autoPlay
+          muted
+          loop
+          playsInline
+        />
+        <div className="cta-content">
+          <h2>Ready to Transform Your Space?</h2>
+          <p>Let's create something beautiful together</p>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSfysuWTNmRABGUmHBBm7ut53rIxH7oLA5FoKl5xrRCNzjncgw/viewform" target="_blank" rel="noopener noreferrer" className="hero-btn">Get Started</a>
+        </div>
       </section>
 
       {/* FOOTER */}

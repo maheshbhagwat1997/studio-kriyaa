@@ -2,8 +2,10 @@ import { Link } from "react-router-dom";
 import AnimatedCat from "../components/AnimatedCat";
 import logo from "../assets/Union.png";
 import servicesImage from "../assets/services.jpg";
+import video01 from "../assets/video01.mp4";
 import "../HomePage.css";
 import "../styles/Pages.css";
+import { studioShowreelUrl } from "../utils/media";
 
 export default function ServicesPage() {
   return (
@@ -39,6 +41,26 @@ export default function ServicesPage() {
       <section className="page-hero animate-on-scroll" style={{ backgroundImage: `url(${servicesImage})`, backgroundSize: "cover", backgroundPosition: "center" }}>
         <h1>Our Services</h1>
         <p>Comprehensive Design Solutions for Every Space</p>
+      </section>
+
+      {/* SHOWREEL SECTION */}
+      <section className="video-section animate-on-scroll">
+        <h2>See Our Process</h2>
+        <p>A short walkthrough of how we collaborate, iterate, and bring spaces to life.</p>
+        <div className="video-wrapper">
+          <video
+            className="video-frame"
+            src={studioShowreelUrl}
+            poster={servicesImage}
+            controls
+            autoPlay
+            loop
+            muted
+            playsInline
+          >
+            Your browser does not support the video tag.
+          </video>
+        </div>
       </section>
 
       {/* SERVICES GRID */}
@@ -110,10 +132,20 @@ export default function ServicesPage() {
       </section>
 
       {/* CTA SECTION */}
-      <section className="cta-section animate-on-scroll">
-        <h2>Let's Start Your Project</h2>
-        <p>Schedule a consultation to discuss your design needs</p>
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfysuWTNmRABGUmHBBm7ut53rIxH7oLA5FoKl5xrRCNzjncgw/viewform" target="_blank" rel="noopener noreferrer" className="hero-btn">Book Now</a>
+      <section className="cta-section cta-video animate-on-scroll">
+        <video
+          className="cta-bg-video"
+          src={video01}
+          autoPlay
+          muted
+          loop
+          playsInline
+        />
+        <div className="cta-content">
+          <h2>Let's Start Your Project</h2>
+          <p>Schedule a consultation to discuss your design needs</p>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSfysuWTNmRABGUmHBBm7ut53rIxH7oLA5FoKl5xrRCNzjncgw/viewform" target="_blank" rel="noopener noreferrer" className="hero-btn">Book Now</a>
+        </div>
       </section>
 
       {/* FOOTER */}

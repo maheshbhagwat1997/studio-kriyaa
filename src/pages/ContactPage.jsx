@@ -4,6 +4,7 @@ import emailjs from "@emailjs/browser";
 import AnimatedCat from "../components/AnimatedCat";
 import logo from "../assets/Union.png";
 import contactImage from "../assets/contactus.jpg";
+import video01 from "../assets/video01.mp4";
 import "../HomePage.css";
 import "../styles/Pages.css";
 
@@ -238,10 +239,20 @@ export default function ContactPage() {
       </section>
 
       {/* CTA SECTION */}
-      <section className="cta-section animate-on-scroll">
-        <h2>Or Fill Our Design Consultation Form</h2>
-        <p>Get detailed information about your project requirements</p>
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfysuWTNmRABGUmHBBm7ut53rIxH7oLA5FoKl5xrRCNzjncgw/viewform" target="_blank" rel="noopener noreferrer" className="hero-btn">Open Form</a>
+      <section className="cta-section cta-video animate-on-scroll">
+        <video
+          className="cta-bg-video"
+          src={video01}
+          autoPlay
+          muted
+          loop
+          playsInline
+        />
+        <div className="cta-content">
+          <h2>Or Fill Our Design Consultation Form</h2>
+          <p>Get detailed information about your project requirements</p>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSfysuWTNmRABGUmHBBm7ut53rIxH7oLA5FoKl5xrRCNzjncgw/viewform" target="_blank" rel="noopener noreferrer" className="hero-btn">Open Form</a>
+        </div>
       </section>
 
       {/* FOOTER */}
