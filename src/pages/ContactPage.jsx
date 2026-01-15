@@ -45,15 +45,14 @@ export default function ContactPage() {
       // Send email using EmailJS to studio email
       const result = await emailjs.send(
         "service_qlm98yj",  // Service ID
-        "template_kf6vxnk", // Template ID
+        "template_wxfqw7e", // Template ID
         {
-          to_email: "contact.studiokriyaa@gmail.com",  // Studio email (set in EmailJS template "To Email" field)
+          to_email: "contact.studiokriyaa@gmail.com",
           from_name: formData.name,
-          from_email: formData.email,
-          phone: formData.phone || "Not provided",
+          user_email: formData.email,
+          phone_number: formData.phone || "Not provided",
           project_type: formData.projectType || "Not specified",
-          message: formData.message,
-          reply_to: formData.email
+          message: formData.message
         }
       );
 
